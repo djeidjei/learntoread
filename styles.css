@@ -59,17 +59,6 @@ button:hover {
     background-color: #555;
 }
 
-.box {
-    padding: 20px;
-    border: 2px solid #333;
-    background-color: #fff;
-    width: 300px;
-    height: 100px;
-    text-align: center;
-    line-height: 60px; /* Adjust based on height for vertical centering */
-    border-radius: 25px; /* Rounded corners */
-}
-
 .title-card {
     margin-top: 30px;
     font-family: 'Unbounded', sans-serif;
