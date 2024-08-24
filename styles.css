@@ -1,6 +1,6 @@
 /* styles.css */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Unbounded', sans-serif;
     background-color: #f0f0f0;
     margin: 0;
     padding: 20px;
@@ -19,7 +19,7 @@ body {
 }
 
 h1 {
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Unbounded', sans-serif;
     font-size: 2rem;
     color: #333;
     margin-bottom: 20px;
@@ -71,7 +71,7 @@ button:hover {
 
 .title-card {
     margin-top: 30px;
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Unbounded', sans-serif;
     font-size: 10rem; /* 5 times bigger than the normal font */
     color: red;
     font-weight: bold;
