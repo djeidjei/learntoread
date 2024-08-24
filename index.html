@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teach Your Kids To Read</title>
+    <title>Word Display App</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
-        <h1>Teach Your Kids To Read</h1>
-        <div class="input-container">
-            <input type="text" id="textInput" placeholder="Type something...">
-            <button onclick="displayText()">Submit</button>
+        <div class="header">Teach Your Kids To Read</div>
+        <div id="title-card" class="title-card">
+            <span id="title-text">Welcome!</span>
         </div>
-        <div id="textBox" class="title-card"></div>
+        <div class="main-content">
+            <button id="play-button">Play</button>
+            <button id="randomize-button">Randomize</button>
+            <div class="collections-container">
+                <div class="collection-item">
+                    <div class="collection-number">01</div>
+                    <input id="collection-1-input" type="text" placeholder="Enter words separated by commas" />
+                </div>
+                <div class="collection-item">
+                    <div class="collection-number">02</div>
+                    <input id="collection-2-input" type="text" placeholder="Enter words separated by commas" />
+                </div>
+                <div class="collection-item">
+                    <div class="collection-number">03</div>
+                    <input id="collection-3-input" type="text" placeholder="Enter words separated by commas" />
+                </div>
+                <div class="collection-item">
+                    <div class="collection-number">04</div>
+                    <input id="collection-4-input" type="text" placeholder="Enter words separated by commas" />
+                </div>
+                <div class="collection-item">
+                    <div class="collection-number">05</div>
+                    <input id="collection-5-input" type="text" placeholder="Enter words separated by commas" />
+                </div>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
