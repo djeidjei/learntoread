@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Unbounded:wght@300;400;700&display=swap');
+
 body {
-    font-family: 'Unbounded', sans-serif;
-    background-color: #91b2b8;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f1f3f6;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     text-align: center;
     box-sizing: border-box;
 }
@@ -17,54 +19,127 @@ body {
     flex-direction: column;
     align-items: center;
     width: 90%;
+    position: relative;
+    margin-top: 40px;
 }
 
 .header {
+    font-family: 'Unbounded', sans-serif;
     font-size: 2.4rem;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     font-weight: bold;
-    margin-top: 100px;
+    margin-top: 0;
+}
+
+.intro-paragraph {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 300;
+    max-width: 600px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.center-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    background-color: rgba(241, 243, 246, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.toggle-text {
+    font-size: 1rem;
+    color: #333;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    flex-shrink: 0;
+}
+
+.toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-label {
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background-color: #cfd2d6;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-label:before {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.toggle-input:checked+.toggle-label {
+    background-color: #9b30ff;
+}
+
+.toggle-input:checked+.toggle-label:before {
+    transform: translateX(30px);
 }
 
 .title-card {
     font-family: 'Unbounded', sans-serif;
-    font-size: 3.36rem;
-    font-weight: bold;
-    text-transform: uppercase;
     text-align: center;
-    background-color: white;
-    border: 1px solid #333;
-    border-radius: 15px;
-    padding: 24px;
-    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.5), inset 0px 0px 10px rgba(255, 255, 255, 0.1);
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.05),
+        0 10px 20px rgba(0, 0, 0, 0.02),
+        0 -15px 30px rgba(255, 255, 255, 0.8);
     width: 100%;
-    max-width: 600px;
-    aspect-ratio: 16 / 9;
-    margin-bottom: 30px;
+    max-width: 800px;
+    aspect-ratio: 21 / 9;
+    /* Ensure the 21:9 aspect ratio */
+    margin-bottom: 40px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease;
     user-select: none;
 }
 
-.title-card span {
-    font-size: 4.5rem;
-    color: red;
+#title-text {
+    color: #333;
     text-transform: capitalize;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 90%;
-    line-height: 1.2;
-    display: inline-block;
-    transition: font-size 0.3s ease;
+    max-width: 100%;
+    text-align: center;
+    margin: 0;
 }
 
-.title-card:active {
-    transform: scale(0.95);
+.subtext {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 10px;
+    text-align: center;
 }
 
 .main-content {
@@ -72,19 +147,62 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 19px;
+    font-family: 'Unbounded', sans-serif;
+    cursor: pointer;
+    border-radius: 50px;
+    border: 2px solid rgba(255, 0, 255, 0.6);
+    background: linear-gradient(145deg, #6a0dad, #9b30ff);
+    color: white;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0px 4px 15px rgba(255, 0, 255, 0.5);
+    transition: transform 0.2s ease-in-out;
+    transform: scale(0.85);
+}
+
+button:hover {
+    transform: scale(0.9);
+}
+
+button:active {
+    transform: scale(0.8);
+}
+
+button img {
+    width: 20px;
+    height: 20px;
 }
 
 .collections-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
+    width: 100%;
 }
 
 .collection-item {
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 100%;
 }
 
 .collection-number {
@@ -96,7 +214,7 @@ body {
     border-radius: 50%;
     background-color: black;
     color: white;
-    font-size: 1.44rem;
+    font-size: 1.22rem;
     font-weight: bold;
     line-height: 48px;
 }
@@ -104,25 +222,58 @@ body {
 input[type="text"] {
     padding: 12px;
     font-size: 19px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
     border-radius: 24px;
     border: 2px solid #333;
-    width: 300px;
+    width: calc(100% - 58px);
     outline: none;
     text-align: center;
 }
 
-button {
-    padding: 12px 24px;
-    font-size: 19px;
-    cursor: pointer;
-    border-radius: 24px;
-    border: 2px solid #333;
-    background-color: #333;
-    color: white;
-    outline: none;
-    transition: background-color 0.3s ease;
-}
+@media (max-width: 768px) {
+    .title-card {
+        font-size: 2rem;
+        padding: 12px;
+    }
 
-button:hover {
-    background-color: #555;
+    .button-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .collection-item {
+        flex-direction: column;
+    }
+
+    input[type="text"] {
+        width: 100%;
+    }
+
+    .center-controls {
+        margin-bottom: 10px;
+    }
+
+    .toggle-text {
+        font-size: 0.9rem;
+    }
+
+    .toggle-switch {
+        width: 50px;
+        height: 25px;
+    }
+
+    .toggle-label:before {
+        width: 20px;
+        height: 20px;
+    }
+
+    .toggle-input:checked+.toggle-label:before {
+        transform: translateX(25px);
+    }
 }
