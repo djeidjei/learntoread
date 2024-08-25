@@ -5,18 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word Display App</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Unbounded:wght@300;400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div class="container">
         <div class="header">Teach Your Kids To Read</div>
+        <p class="intro-paragraph">
+            Welcome to the teach your kids to read app. Add up to 5 words per collection in order to practice with your
+            son, daughter, or even baby to read!
+        </p>
+        <div class="center-controls">
+            <span class="toggle-text">Randomize</span>
+            <div class="toggle-switch">
+                <input type="checkbox" id="randomize-toggle" class="toggle-input">
+                <label for="randomize-toggle" class="toggle-label"></label>
+            </div>
+        </div>
         <div id="title-card" class="title-card">
             <span id="title-text">Welcome!</span>
+            <p class="subtext">Add up to 5 words and click play!</p>
         </div>
         <div class="main-content">
-            <button id="play-button">Play</button>
-            <button id="randomize-button">Randomize</button>
+            <div class="button-container">
+                <button id="play-button">Play</button>
+                <button id="reset-button">Reset</button>
+            </div>
             <div class="collections-container">
                 <div class="collection-item">
                     <div class="collection-number">01</div>
