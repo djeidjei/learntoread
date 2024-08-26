@@ -133,10 +133,15 @@ body {
     max-width: 100%;
     text-align: center;
     margin: 0;
+    font-size: 6rem;
+    /* Increased font size */
+    line-height: 6.5rem;
+    /* Adjusted line height to match new size */
 }
 
 .subtext {
-    font-size: 1rem;
+    font-size: 2rem;
+    /* Increased font size */
     color: #666;
     margin-top: 10px;
     text-align: center;
@@ -159,8 +164,10 @@ body {
 }
 
 button {
-    padding: 12px 24px;
-    font-size: 19px;
+    padding: 16px 32px;
+    /* Increased padding */
+    font-size: 22px;
+    /* Increased font size */
     font-family: 'Unbounded', sans-serif;
     cursor: pointer;
     border-radius: 50px;
@@ -174,15 +181,18 @@ button {
     gap: 8px;
     box-shadow: 0px 4px 15px rgba(255, 0, 255, 0.5);
     transition: transform 0.2s ease-in-out;
-    transform: scale(0.85);
+    transform: scale(0.9);
+    /* Slightly larger default scale */
 }
 
 button:hover {
-    transform: scale(0.9);
+    transform: scale(0.95);
+    /* Adjust hover effect to match new size */
 }
 
 button:active {
-    transform: scale(0.8);
+    transform: scale(0.85);
+    /* Adjust active effect to match new size */
 }
 
 button img {
@@ -244,7 +254,10 @@ input[type="text"] {
 
     button {
         width: 100%;
-        padding: 12px;
+        padding: 14px 28px;
+        /* Slightly smaller padding for mobile */
+        font-size: 20px;
+        /* Adjusted font size for mobile */
     }
 
     .collection-item {
