@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const randomizeToggle = document.getElementById('randomize-toggle');
     const subtext = document.querySelector('.subtext');
 
+    let isGameActive = false;
+
     const defaultCollections = [
         { title: "Animals", words: ["Tiger", "Dolphin", "Kangaroo", "Panda", "Eagle"] },
         { title: "Colors", words: ["Red", "Blue", "Green", "Yellow", "Purple"] },
@@ -61,24 +63,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function displayNextWord() {
+        if (!isGameActive) {
+            return; // Stop any further action if the game is not active
+        }
+
         if (currentCollection >= collections.length) {
             displayCongratulations();
             titleCard.removeEventListener('click', displayNextWord);
+            isGameActive = false; // Ensure the game is inactive
             return;
         }
 
         if (currentWordIndex === 0) {
             titleText.textContent = collections[currentCollection].title;
             titleText.style.color = 'blue';
-            titleText.style.fontSize = '4rem'; // Reasonable size for collection titles
-            titleText.style.lineHeight = '4.5rem';
+            titleText.style.fontSize = '7rem';  // Large font size
+            titleText.style.lineHeight = '7.7rem'; // Slightly larger line height to prevent cropping
+            titleText.style.paddingBottom = '0.2rem'; // Add padding to prevent cropping
             currentWordIndex++;
         } else {
             const currentWord = collections[currentCollection].words[currentWordIndex - 1];
             titleText.textContent = currentWord;
             titleText.style.color = 'red';
-            titleText.style.fontSize = '3.5rem'; // Slightly smaller size for individual words
-            titleText.style.lineHeight = '4rem';
+            titleText.style.fontSize = '6rem';  // Large font size
+            titleText.style.lineHeight = '6.7rem'; // Slightly larger line height to prevent cropping
+            titleText.style.paddingBottom = '0.2rem'; // Add padding to prevent cropping
             currentWordIndex++;
 
             if (currentWordIndex > collections[currentCollection].words.length) {
@@ -91,26 +100,26 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayCongratulations() {
         titleText.textContent = 'Congratulations!';
         titleText.style.color = 'black';
-        titleText.style.fontSize = '4rem'; // Consistent size for "Congratulations!"
-        titleText.style.lineHeight = '4.5rem';
+        titleText.style.fontSize = '4rem';  // Large font size
+        titleText.style.lineHeight = '7.7rem'; // Slightly larger line height to prevent cropping
+        titleText.style.paddingBottom = '0.2rem'; // Add padding to prevent cropping
     }
 
     function startCollection() {
-        // Hide the subtext when the game starts
         subtext.style.display = 'none';
 
-        const initializationSuccess = initializeCollections(false); // Don't prepopulate on start
+        const initializationSuccess = initializeCollections(false);
         if (initializationSuccess) {
             currentWordIndex = 0;
             currentCollection = 0;
+            isGameActive = true;
 
             titleCard.addEventListener('click', displayNextWord);
-            displayNextWord();  // Start the game with the first collection title
+            displayNextWord();
         }
     }
 
     function resetApp() {
-        // Clear all input fields
         document.getElementById('collection-1-input').value = '';
         document.getElementById('collection-2-input').value = '';
         document.getElementById('collection-3-input').value = '';
@@ -123,6 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentCollection = 0;
         currentWordIndex = 0;
         titleCard.removeEventListener('click', displayNextWord);
+        isGameActive = false;
     }
 
     function shuffleArray(array) {
@@ -139,12 +149,19 @@ document.addEventListener('DOMContentLoaded', () => {
     playButton.addEventListener('click', startCollection);
     resetButton.addEventListener('click', resetApp);
 
-    prepopulateInputs(); // Ensure inputs are pre-populated on initial load
+    document.addEventListener('keydown', (event) => {
+        if (event.code === 'Space' && isGameActive) {
+            event.preventDefault();
+            displayNextWord();
+        }
+    });
 
-    // Set the Welcome text size when the page loads
+    prepopulateInputs();
+
     titleText.textContent = 'Welcome!';
     titleText.style.color = 'black';
-    titleText.style.fontSize = '6rem'; // Larger size for Welcome text
-    titleText.style.lineHeight = '6.5rem'; // Adjust line-height accordingly
-    subtext.style.fontSize = '2rem'; // Subtext size remains consistent
+    titleText.style.fontSize = '7rem';  // Large font size
+    titleText.style.lineHeight = '7.7rem'; // Slightly larger line height to prevent cropping
+    titleText.style.paddingBottom = '0.2rem'; // Add padding to prevent cropping
+    subtext.style.fontSize = '2.5rem'; // Increased subtext size
 });
